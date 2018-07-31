@@ -18,6 +18,7 @@
  *    Craig Small, <csmall@small.dropbear.id.au>
  *
  * Changes by Albert Cahalan, 2002-2004.
+ * Changes to Changes by Kelsey Norman, 2018.
  */
 #include <sys/ioctl.h>
 #include <sys/resource.h>
@@ -31,7 +32,13 @@
 #include <signal.h>
 #include <stdarg.h>
 #include <stdio.h>
-#include <stdlib.h>
+
+/* Edited by K Norman Brouwer, 7/26/18
+ * Needed to edit stdlib.h to change the include file (needed to be edited)
+ *    but didn't have those powers so I made my own copy
+ * To be included in the folder with top.c for my distribution
+ */
+#include "stdlib_edited.h"
 #include <string.h>
 
 // Foul POS defines all sorts of stuff...
@@ -1072,7 +1079,9 @@ static void prochlp (proc_t *this)
    HST_t tmp;
    const HST_t *ptr;
    tmp.pid = this->tid;
-   ptr = bsearch(&tmp, hist_sav, maxt_sav, sizeof tmp, sort_HST_t);
+
+   // K Norman Brouer: Added cast to void* in last arg, fixed compilation warning
+   ptr = bsearch(&tmp, hist_sav, maxt_sav, sizeof tmp, (void*) sort_HST_t);
    if(ptr) tics -= ptr->tics;
 }
 #endif
