@@ -8,6 +8,10 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU Library General Public License for more details.
  */
+
+/* Edits by K Norman Brouwer
+ * Summer Research 2018, Calvin College
+ */
 #include <signal.h>
 #include <string.h>
 #include <stdio.h>
@@ -214,8 +218,11 @@ void pretty_print_signals(void){
   while(++i <= number_of_signals){
     int n;
     n = printf("%2d %s", i, signal_number_to_name(i));
-    if(i%7) printf("           \0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0" + n);
-    else printf("\n");
+    // Edited slightly to take care of a warning - K Norman Brouwer
+    char* nullstring = "           \0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0";
+    if(i%7){
+      printf("%s%i", nullstring, n);
+    } else printf("\n");
   }
   if((i-1)%7) printf("\n");
 }
