@@ -9,6 +9,11 @@
 //
 // June 2003, Fabian Frederick, disk and slab info
 
+/* Changes made by K Norman Brouwer
+ * Summer Research 2018, Calvin College
+ * All changes documented
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -184,7 +189,11 @@ static void old_Hertz_hack(void){
 
 #define NOTE_NOT_FOUND 42
 
-//extern char** environ;
+/* The following was commented out for some reason
+ * Uncommenting to see if that fixes stuff
+ * K Norman Brouwer, 8/2/18
+ */
+extern char** environ;
 
 /* for ELF executables, notes are pushed before environment and args */
 static unsigned long find_elf_note(unsigned long findme){
