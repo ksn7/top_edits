@@ -8,6 +8,15 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU Library General Public License for more details.
  */  
+
+/* Edited by K Norman Brouwer
+ * Summer Research 2018, Calvin College
+ */ 
+
+/* Trying this to fix the compilation issues with wcwidth
+ * K Norman Brouwer, 8/7/18
+ */ 
+#define _XOPEN_SOURCE
                               
 #include <stdio.h>
 #include <sys/types.h>
@@ -15,6 +24,11 @@
 #include "procps.h"
 #include "escape.h"
 #include "readproc.h"
+
+/* Adding this include for strings to fix another error
+ * K Norman Brouwer, 8/7/18
+ */
+#include <strings.h>
 
 #if (__GNU_LIBRARY__ >= 6)
 # include <wchar.h>
@@ -106,7 +120,6 @@ static int escape_str_utf8(char *restrict dst, const char *restrict src, int buf
   *maxcells -= my_cells;
   return my_bytes;        // bytes of text, excluding the NUL
 }
-
 #endif /* __GNU_LIBRARY__  */
 
 /* sanitize a string via one-way mangle */
@@ -215,3 +228,8 @@ int escape_command(char *restrict const outbuf, const proc_t *restrict const pp,
   outbuf[end] = '\0';
   return end;  // bytes, not including the NUL
 }
+
+/* Just being careful to undef the things I define
+ * K Norman Brouwer, 8/7/18
+ */
+#undef _XOPEN_SOURCE
