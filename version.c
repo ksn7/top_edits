@@ -7,6 +7,11 @@
  * Redistributable under the terms of the
  * GNU Library General Public License; see COPYING
  */
+
+/* Some edits by K Norman Brouwer
+ * To fix compilation errors and warnings
+ * Summer Research 2018, Calvin College
+ */
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
@@ -14,11 +19,18 @@
 #include <stdlib.h>
 #include "version.h"
 
-#ifdef MINORVERSION
-const char procps_version[] = "procps version " VERSION "." SUBVERSION "." MINORVERSION;
-#else
-const char procps_version[] = "procps version " VERSION "." SUBVERSION;
-#endif
+/* K Norman Brouwer
+ * Took out this whole section to get rid of errors and warnings. 
+ * Replaced it with the line below
+ * No longer assigns anything but the string, but we're not gonna use it anyway
+ * 8/14/18
+ */
+//#ifdef MINORVERSION
+//const char procps_version[] = "procps version " VERSION "." SUBVERSION "." MINORVERSION;
+//#else
+//const char procps_version[] = "procps version " VERSION "." SUBVERSION;
+//#endif
+const char procps_version[] = "procps version";
 
 void display_version(void) {
     fprintf(stdout, "%s\n", procps_version);
