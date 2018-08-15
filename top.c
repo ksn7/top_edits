@@ -55,15 +55,15 @@
 #include <unistd.h>
 #include <values.h>
 
-#include "proc/devname.h"
-#include "proc/wchan.h"
-#include "proc/procps.h"
-#include "proc/readproc.h"
-#include "proc/escape.h"
-#include "proc/sig.h"
-#include "proc/sysinfo.h"
-#include "proc/version.h"
-#include "proc/whattime.h"
+#include "devname.h"
+#include "wchan.h"
+#include "procps.h"
+#include "readproc.h"
+#include "escape.h"
+#include "sig.h"
+#include "sysinfo.h"
+#include "version.h"
+#include "whattime.h"
 
 #include "top.h"
 
