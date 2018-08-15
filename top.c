@@ -18,7 +18,12 @@
  *    Craig Small, <csmall@small.dropbear.id.au>
  *
  * Changes by Albert Cahalan, 2002-2004.
- * Changes to Changes by Kelsey Norman, 2018.
+ */
+
+/* Additional changes by K Norman Brouwer
+ * Changes were made to fix compilation issues
+ * To be used to make audializations in future projects
+ * Summer Research 2018, Calvin College
  */
 #include <sys/ioctl.h>
 #include <sys/resource.h>
@@ -38,7 +43,7 @@
  *    but didn't have those powers so I made my own copy
  * To be included in the folder with top.c for my distribution
  */
-#include "stdlib_edited.h"
+#include "stdlib.h"
 #include <string.h>
 
 // Foul POS defines all sorts of stuff...
