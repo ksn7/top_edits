@@ -38,7 +38,7 @@ __BEGIN_DECLS
 
 #if (defined __USE_XOPEN || defined __USE_XOPEN2K8) && !defined _SYS_WAIT_H
 /* XPG requires a few symbols from <sys/wait.h> being defined.  */
-# include <bits/waitflags.h>
+# include "waitflags.h"	// Use my personal edited file, to be included
 # include <bits/waitstatus.h>
 
 # ifdef __USE_MISC
