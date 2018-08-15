@@ -19,6 +19,11 @@
  *	ISO C99 Standard: 7.20 General utilities	<stdlib.h>
  */
 
+/* One change by K Norman Brouwer
+ * To fix compilation errors and warnings
+ * Summer Research 2018, Calvin College
+ */
+
 #ifndef	_STDLIB_H
 
 #include <features.h>
@@ -38,7 +43,11 @@ __BEGIN_DECLS
 
 #if (defined __USE_XOPEN || defined __USE_XOPEN2K8) && !defined _SYS_WAIT_H
 /* XPG requires a few symbols from <sys/wait.h> being defined.  */
-# include "waitflags.h"	// Use my personal edited file, to be included
+
+/* K Norman Brouwer, 8/15/18
+ * Changed include to use my personal file, which is slightly edited
+ */
+# include "waitflags.h"
 # include <bits/waitstatus.h>
 
 # ifdef __USE_MISC
